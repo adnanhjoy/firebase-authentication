@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import app from '../firebase/firebase.init';
 
 const auth = getAuth(app)
@@ -8,28 +8,40 @@ const auth = getAuth(app)
 const Login = () => {
     const googlePorvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
+    const facebookProvider = new FacebookAuthProvider()
 
-const googleSignIn = () => {
-    signInWithPopup(auth, googlePorvider)
-    .then(result => {
-        const user = result.user;
-        console.log(user)
-    })
-    .catch(error => {
-        console.error(error)
-    })
-}
+    const googleSignIn = () => {
+        signInWithPopup(auth, googlePorvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
-const githubSignIn = () => {
-    signInWithPopup(auth, githubProvider)
-    .then(result => {
-        const user = result.user;
-        console.log(user)
-    })
-    .catch(error => {
-        console.error(error)
-    })
-}
+    const githubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const facebookSignIn = () => {
+        signInWithPopup(auth, facebookProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     return (
         <div className=' bg-indigo-600 p-20'>
@@ -49,7 +61,7 @@ const githubSignIn = () => {
 
                 <div className=' text-center mt-5 flex justify-center flex-col items-center'>
                     <h1 onClick={googleSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer'>Sign in with google</h1>
-                    <h1  className='bg-white w-1/3 rounded-md p-2 my-2 cursor-pointer'>Sign in with faceook</h1>
+                    <h1 onClick={facebookSignIn} className='bg-white w-1/3 rounded-md p-2 my-2 cursor-pointer'>Sign in with faceook</h1>
                     <h1 onClick={githubSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer'>Sign in with github</h1>
                 </div>
             </form>
