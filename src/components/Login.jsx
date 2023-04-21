@@ -55,14 +55,14 @@ const Login = () => {
                     <label className='text-white mb-3' htmlFor="">Enter your password</label>
                     <input className=' w-full p-2 rounded-md' type="text" name="" id="" />
                 </div>
-                <button className=' bg-violet-500 py-3 px-5 rounded-md text-white mt-5'>Login</button>
+                <button className=' bg-violet-500 py-3 px-5 rounded-md text-white mt-5 hover:bg-black'>Login</button>
 
                 <p className='text-white'>Don't have an account ? Please <Link className='text-black' to='/register'>Signup</Link></p>
 
                 <div className=' text-center mt-5 flex justify-center flex-col items-center'>
-                    <h1 onClick={googleSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer'>Sign in with google</h1>
-                    <h1 onClick={facebookSignIn} className='bg-white w-1/3 rounded-md p-2 my-2 cursor-pointer'>Sign in with faceook</h1>
-                    <h1 onClick={githubSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer'>Sign in with github</h1>
+                    <h1 onClick={googleSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer hover:bg-orange-500 hover:text-white'>Sign in with google</h1>
+                    <h1 onClick={facebookSignIn} className='bg-white w-1/3 rounded-md p-2 my-2 cursor-pointer hover:bg-blue-600 hover:text-white'>Sign in with faceook</h1>
+                    <h1 onClick={githubSignIn} className='bg-white w-1/3 rounded-md p-2 cursor-pointer hover:bg-black hover:text-white'>Sign in with github</h1>
                 </div>
             </form>
         </div>

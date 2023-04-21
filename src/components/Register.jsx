@@ -66,7 +66,7 @@ const Register = () => {
                 </div>
                 {success && <p className=' text-green-400'>Signup successfully</p>}
                 <p className='text-white'>{errorMessage}</p>
-                <button className=' bg-violet-500 py-3 px-5 rounded-md text-white mt-5'>Signup</button>
+                <button className=' bg-violet-500 py-3 px-5 rounded-md text-white mt-5 hover:bg-black'>Signup</button>
                 <p className='text-white'>Already have an account ? Please <Link className='text-black' to='/login'>Login</Link></p>
             </form>
         </div>
