@@ -1,7 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
+import app from '../firebase/firebase.init';
+
+const auth = getAuth(app)
 
 const Login = () => {
+    const googlePorvider = new GoogleAuthProvider()
+
+const googleSignIn = () => {
+    signInWithPopup(auth, googlePorvider)
+    .then(result => {
+        const user = result.user;
+        console.log(user)
+    })
+    .catch(error => {
+        console.error(error)
+    })
+}
+
     return (
         <div className=' bg-indigo-600 p-20'>
             <h1 className='text-white text-center text-5xl'>Please Login</h1>
@@ -19,7 +36,7 @@ const Login = () => {
                 <p className='text-white'>Don't have an account ? Please <Link className='text-black' to='/register'>Signup</Link></p>
 
                 <div className='mt-5 flex justify-center flex-col items-center'>
-                    <h1 className='bg-white w-1/3 rounded-md p-2'>Sign in with google</h1>
+                    <h1 onClick={googleSignIn} className='bg-white w-1/3 rounded-md p-2'>Sign in with google</h1>
                     <h1 className='bg-white w-1/3 rounded-md p-2 my-2'>Sign in with faceook</h1>
                     <h1 className='bg-white w-1/3 rounded-md p-2'>Sign in with github</h1>
                 </div>
