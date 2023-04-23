@@ -31,7 +31,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error)
-                setErrorMessage(error);
+                setErrorMessage(error.message);
             })
     }
 
@@ -41,6 +41,10 @@ const Login = () => {
 
 
     const forgottenPassword = () => {
+        if(!userEmail){
+            alert('Please enter your valid user email')
+            return
+        }
         sendPasswordResetEmail(auth, userEmail)
             .then(() => {
                 alert('Please check your email and reset your email')
